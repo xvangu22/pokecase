@@ -60,6 +60,11 @@ function List({ fromGeneration }: { fromGeneration: number }) {
     }
   };
 
+  const handleClearFilters = () => {
+    setFilters([]);
+    setPage(1);
+  };
+
   if (pokemonQueries.every((query) => query.isLoading))
     return <Loader isLoading={true} />;
 
@@ -87,7 +92,7 @@ function List({ fromGeneration }: { fromGeneration: number }) {
           <button
             type="button"
             onClick={resetQuery}
-            className="px-4 py-2 bg-red-800 text-white rounded cursor-pointer transition-all duration-300 hover:bg-red-700 font-inter font-bold"
+            className="px-4 py-2 bg-red-900 text-white rounded cursor-pointer transition-all duration-300 hover:bg-red-700 font-inter font-bold"
           >
             Clear
           </button>
@@ -113,6 +118,7 @@ function List({ fromGeneration }: { fromGeneration: number }) {
                   type="checkbox"
                   id={type.name}
                   className="sr-only peer"
+                  checked={filters.includes(type.name)}
                   onChange={handleFilter}
                 />
                 {type.name.replace("-", " ")}
@@ -120,6 +126,14 @@ function List({ fromGeneration }: { fromGeneration: number }) {
             </li>
           ))}
         </ul>
+        {filters.length > 0 && (
+          <button
+            onClick={handleClearFilters}
+            className="flex gap-2 px-2 py-1 items-center w-fit bg-red-900 font-inter font-bold text-slate-100 border-1 border-red-600 rounded cursor-pointer transition-all duration-300 ease-in-out hover:bg-red-700 outline-offset-2 outline-slate-200 focus-within:outline-2"
+          >
+            Clear filters
+          </button>
+        )}
       </div>
 
       <div className="flex flex-col gap-4">
