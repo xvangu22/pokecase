@@ -18,7 +18,7 @@ const Details = memo(function Details({ name }: { name: string }) {
         </h1>
 
         <div>
-          <h3 className="font-inter font-bold capitalize text-slate-100">
+          <h3 className="font-inter font-bold text-slate-100">
             Types:
           </h3>
           <ul>
@@ -34,8 +34,8 @@ const Details = memo(function Details({ name }: { name: string }) {
         </div>
 
         <div>
-          <h3 className="font-inter font-bold capitalize text-slate-100">
-            Base Stats:
+          <h3 className="font-inter font-bold text-slate-100">
+            Base stats:
           </h3>
           <ul>
             {pokemon.stats.map((stat) => (
@@ -50,16 +50,16 @@ const Details = memo(function Details({ name }: { name: string }) {
         </div>
 
         <div>
-          <p className="font-inter capitalize text-slate-100">
+          <p className="font-inter text-slate-100">
             <strong>Height:</strong> {pokemon.height.toFixed(1)} m
           </p>
-          <p className="font-inter capitalize text-slate-100">
+          <p className="font-inter text-slate-100">
             <strong>Weight:</strong> {pokemon.weight.toFixed(1)} kg
           </p>
         </div>
 
         <div>
-          <h3 className="font-inter font-bold capitalize text-slate-100">
+          <h3 className="font-inter font-bold text-slate-100">
             Abilities:
           </h3>
           <ul>
